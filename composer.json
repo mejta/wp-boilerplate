@@ -1,0 +1,15 @@
+{
+    "name": "mejta/wp-boilerplate",
+    "type": "project",
+    "require": {
+        "tgmpa/tgm-plugin-activation": "^2.6",
+        "yahnis-elsts/plugin-update-checker": "^4.2",
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "authors": [
+        {
+            "name": "Daniel Mejta",
+            "email": "daniel@mejta.net"
+        }
+    ]
+}

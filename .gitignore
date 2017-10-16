@@ -1,0 +1,8 @@
+vendor/*
+node_modules/*
+themes/mejta/static/css/*
+themes/mejta/static/js/*
+themes/mejta/mix-manifest.json
+.env
+.DS_Store
+npm-debug.log

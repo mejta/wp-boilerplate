@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html {{ site.language_attributes }}>
+<head>
+    <meta charset="{{ site.charset }}" />
+        <title>   
+            {% if wp_title %}
+                {{ wp_title }} - {{ site.name }}
+            {% else %}
+                {{ site.name }}
+            {% endif %}
+        </title>
+    <meta name="description" content="{{ site.description }}">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="author" href="{{ site.theme.link }}/humans.txt" />
+    <link rel="pingback" href="{{ site.pingback_url }}" />
+    {{function('wp_head')}}
+</head>
+<body class="{{body_class}}">
+	<header class="header" >
+		{% block header %}
+			<div class="wrapper">
+				<h1 class="hdr-logo" role="banner">
+					<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+				</h1>
+				<nav id="nav-main" class="nav-main" role="navigation">
+					{% include "menu.twig" with {'menu': menu.get_items} %}
+				</nav>
+			</div>
+		{% endblock %}
+	</header>
+
+	<section id="content" role="main" class="content-wrapper">
+		{% if title %}
+			<h1>{{title}}</h1>
+		{% endif %}
+
+		<div class="wrapper {{sidebar_class}}">
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+		</div>
+		{% if sidebar %}
+			<aside class="layout-sidebar">
+				{{ sidebar }}
+			</aside>
+		{% endif %}
+	</section>
+
+	{% block footer %}
+		<footer id="footer">
+			Copyright {{"now"|date('Y')}}
+		</footer>
+		{{ function('wp_footer') }}
+	{% endblock %}
+</body>
+</html>
