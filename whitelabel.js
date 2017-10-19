@@ -30,8 +30,9 @@ info.package = info.package ? info.package : capitalize(info.slug);
 info.instance = info.instance ? info.instance : info.slug.replace(/-/gi, '_');
 info.author.full = info.author.full ? info.author.full : `${info.author.name} <${info.author.email}>`;
 
-var origin = path.resolve(process.cwd());
-var destination = path.resolve(process.cwd(), "..", info.slug);
+fs.renameSync('themes/plugin-name-theme', `themes/${info.slug}-theme`);
+fs.renameSync('plugin-name.php', `${info.slug}.php`);
+fs.renameSync('languages/plugin-name.pot', `languages/${info.slug}.pot`);
 
 globby([
     '**/*',
@@ -43,84 +44,77 @@ globby([
     '!**/*.log',
 ], { nodir: true }).then(function (files) {
     files.forEach(function (file) {
-        var originFile = path.resolve('.', file);
-
-        if(file.match(/plugin-name/gi)) {
-            var destFile = path.resolve(destination, file.replace(/plugin-name/gi, info.slug));
-        } else {
-            var destFile = path.resolve(destination, file);
-        }
-
-        fs.copySync(originFile, destFile);
 
         replace({
             regex: "WordPress Plugin Boilerplate",
             replacement: info.name,
-            paths: [ destFile ],
+            paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "Your Name <email@example.com>",
             replacement: info.author.full,
-            paths: [ destFile ],
+            paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "email@example.com",
             replacement: info.author.email,
-            paths: [ destFile ],
+            paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "Your Name or Your Company",
             replacement: info.author.name,
-            paths: [ destFile ],
+            paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "http://example.com/plugin-name-uri/",
             replacement: info.uri,
-            paths: [ destFile ],
+            paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "http://example.com",
             replacement: info.author.uri,
-            paths: [ destFile ],
+            paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "Plugin Name",
             replacement: info.name,
-            paths: [ destFile ],
+            paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "plugin-name",
             replacement: info.slug,
-            paths: [ destFile ],
+            paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "Plugin_Name",
             replacement: info.package,
-            paths: [ destFile ],
+            paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "plugin_name",
             replacement: info.instance,
-            paths: [ destFile ],
+            paths: [ file ],
             silent: true,
         });
     });
+
+    fs.unlink(__filename);
 });
