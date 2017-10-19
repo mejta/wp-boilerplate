@@ -1,1 +1,4 @@
-console.log('Theme js');
+jQuery(function ($) {
+    console.log('Theme JS');
+});
+

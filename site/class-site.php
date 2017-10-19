@@ -1,15 +1,16 @@
 <?php
+
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://www.mejta.net
+ * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Mejta
- * @subpackage Mejta/site
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/site
  */
 
-namespace Mejta;
+namespace Plugin_Name;
 
 /**
  * The public-facing functionality of the plugin.
@@ -17,11 +18,10 @@ namespace Mejta;
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Mejta
- * @subpackage Mejta/site
- * @author     Daniel Mejta <daniel@mejta.net>
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/site
+ * @author     Your Name <email@example.com>
  */
-
 class Site {
 
 	/**

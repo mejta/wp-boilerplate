@@ -1,1 +1,1 @@
-console.log('Plugin site js');
+console.log('Plugin site JS');

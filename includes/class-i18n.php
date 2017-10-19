@@ -6,14 +6,14 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://www.mejta.net
+ * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Mejta
- * @subpackage Mejta/includes
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
  */
 
-namespace Mejta;
+namespace Plugin_Name;
 
 /**
  * Define the internationalization functionality.
@@ -22,11 +22,10 @@ namespace Mejta;
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Mejta
- * @subpackage Mejta/includes
- * @author     Daniel Mejta <daniel@mejta.net>
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
+ * @author     Your Name <email@example.com>
  */
-
 class I18n {
 
 	/**
@@ -37,7 +36,7 @@ class I18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'mejta',
+			'plugin-name',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

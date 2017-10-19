@@ -1,0 +1,10 @@
+{
+    "slug": "amazing-plugin",
+    "name": "Amazing Plugin",
+    "uri": "http://example.com/amazing-plugin-uri/",
+    "author": {
+        "name": "Plugin Author",
+        "uri": "http://mydomain.tld",
+        "email": "my@email.tld",
+    }
+}

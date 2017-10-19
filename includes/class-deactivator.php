@@ -1,15 +1,16 @@
 <?php
+
 /**
  * Fired during plugin deactivation
  *
- * @link       https://www.mejta.net
+ * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Mejta
- * @subpackage Mejta/includes
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
  */
 
-namespace Mejta;
+namespace Plugin_Name;
 
 /**
  * Fired during plugin deactivation.
@@ -17,11 +18,10 @@ namespace Mejta;
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Mejta
- * @subpackage Mejta/includes
- * @author     Daniel Mejta <daniel@mejta.net>
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
+ * @author     Your Name <email@example.com>
  */
-
 class Deactivator {
 
 	/**

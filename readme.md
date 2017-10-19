@@ -2,14 +2,14 @@
 
 Development boilerplate for building custom plugin and theme. This boilerplate is for projects, that have no continuous development (therefore there is no WordPress framework used) and that:
 
-* use Twig for templates, 
-* requires plugins that are necessary for it's run, 
-* provide standard way for updates/deployments (every deployment is plugin update and goes through standard update process),
-* have a theme that takes care only of data representation,
-* have a plugin that takes care of everything else (custom post types, custom fields, forms, etc.),
-* have one repository for theme and plugin,
-* have a possibility to have multiple themes,
-* have a nice structure that leverage modern , WordPress and frontend development,
+* uses Twig for templates, 
+* requires plugins in admin that are necessary for it's run,
+* provides standard way for updates/deployments (every deployment is plugin update and goes through standard update process),
+* has a theme that takes care only of data representation,
+* has a plugin that takes care of everything else (custom post types, custom fields, forms, etc.),
+* has one repository for theme and plugin,
+* has a possibility to have multiple themes,
+* has a nice structure that leverage modern , WordPress and frontend development,
 * uses composer for it's dependencies (that are not WP plugins).
 
 ## What's inside:
@@ -20,4 +20,8 @@ Development boilerplate for building custom plugin and theme. This boilerplate i
 * Plugin can be updated in a same way as any other plugin from WordPress.org with [Plugin Update Checker](https://github.com/YahnisElsts/plugin-update-checker)
 
 ## How to contribute
-If you want to improve this boilerplate, feel free to open pull request.
+If you want to improve this boilerplate, feel free to open a pull request.
+
+## Requirements
+* Running WordPress instance
+* Node.js

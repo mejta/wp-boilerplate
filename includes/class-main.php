@@ -1,18 +1,19 @@
 <?php
+
 /**
  * The file that defines the core plugin class
  *
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://www.mejta.net
+ * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Mejta
- * @subpackage Mejta/includes
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
  */
 
-namespace Mejta;
+namespace Plugin_Name;
 
 /**
  * The core plugin class.
@@ -24,11 +25,10 @@ namespace Mejta;
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Mejta
- * @subpackage Mejta/includes
- * @author     Daniel Mejta <daniel@mejta.net>
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
+ * @author     Your Name <email@example.com>
  */
-
 class Main {
 
 	/**
@@ -37,7 +37,7 @@ class Main {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Mejta_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -74,7 +74,7 @@ class Main {
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'mejta';
+		$this->plugin_name = 'plugin-name';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -88,10 +88,10 @@ class Main {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Mejta_Loader. Orchestrates the hooks of the plugin.
-	 * - Mejta_i18n. Defines internationalization functionality.
-	 * - Mejta_Admin. Defines all hooks for the admin area.
-	 * - Mejta_Public. Defines all hooks for the public side of the site.
+	 * - Loader. Orchestrates the hooks of the plugin.
+	 * - i18n. Defines internationalization functionality.
+	 * - Admin. Defines all hooks for the admin area.
+	 * - Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -111,7 +111,7 @@ class Main {
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-I18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
@@ -131,7 +131,7 @@ class Main {
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Mejta_i18n class in order to set the domain and to register the hook
+	 * Uses the i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -202,7 +202,7 @@ class Main {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Mejta_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

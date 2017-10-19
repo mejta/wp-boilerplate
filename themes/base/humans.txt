@@ -1,8 +1,7 @@
 ## Team
 
-Daniel Mejta
-https://www.mejta.net
-@mejta
+Your Name or Your Company
+http://example.com/
 
 
 ## Site

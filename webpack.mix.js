@@ -1,4 +1,3 @@
-require('dotenv').config();
 let mix = require('laravel-mix');
 
 mix
@@ -13,10 +12,7 @@ mix
 .sass('site/resources/scss/site.scss', 'site/static/site.css')
 
 .sourceMaps()
-.autoload({
-    jquery: ['$', 'window.jQuery', 'jQuery'],
-})
 .browserSync({
-    proxy: 'http://mejta.test',
+    proxy: 'localhost',
     open: false,
 });

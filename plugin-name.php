@@ -7,24 +7,24 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://www.mejta.net
+ * @link              http://example.com
  * @since             1.0.0
- * @package           Mejta
+ * @package           Plugin_Name
  *
  * @wordpress-plugin
- * Plugin Name:       Mejta
- * Plugin URI:        https://www.mejta.net
+ * Plugin Name:       WordPress Plugin Boilerplate
+ * Plugin URI:        http://example.com/plugin-name-uri/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
- * Author:            Daniel Mejta
- * Author URI:        https://www.mejta.net
+ * Author:            Your Name or Your Company
+ * Author URI:        http://example.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       mejta
+ * Text Domain:       plugin-name
  * Domain Path:       /languages
  */
 
-namespace Mejta;
+namespace Plugin_Name;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -39,7 +39,7 @@ register_theme_directory( dirname( __FILE__ ) . '/themes' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-mejta-activator.php
+ * This action is documented in includes/class-activator.php
  */
 function activate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-activator.php';
@@ -48,7 +48,7 @@ function activate() {
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-mejta-deactivator.php
+ * This action is documented in includes/class-deactivator.php
  */
 function deactivate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-deactivator.php';

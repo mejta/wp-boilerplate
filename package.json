@@ -1,9 +1,9 @@
 {
-  "name": "mejta",
+  "name": "plugin-name",
   "version": "1.0.0",
   "description": "",
   "main": "themes/base/resources/js/app.js",
-  "author": "Daniel Mejta <daniel@mejta.net>",
+  "author": "Your Name <email@example.com>",
   "license": "ISC",
   "private": true,
   "scripts": {
@@ -17,8 +17,6 @@
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
     "cross-env": "^5.1.0",
-    "dotenv": "^4.0.0",
-    "jquery": "^3.2.1",
     "laravel-mix": "^1.5.0",
     "yargs": "^9.0.1"
   }

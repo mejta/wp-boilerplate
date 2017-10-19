@@ -1,15 +1,16 @@
 <?php
+
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://www.mejta.net
+ * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Mejta
- * @subpackage Mejta/includes
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
  */
 
-namespace Mejta;
+namespace Plugin_Name;
 
 /**
  * Register all actions and filters for the plugin.
@@ -18,9 +19,9 @@ namespace Mejta;
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Mejta
- * @subpackage Mejta/includes
- * @author     Daniel Mejta <daniel@mejta.net>
+ * @package    Plugin_Name
+ * @subpackage Plugin_Name/includes
+ * @author     Your Name <email@example.com>
  */
 class Loader {
 

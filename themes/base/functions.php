@@ -17,8 +17,8 @@ if ( !class_exists( 'Timber' ) ) {
 Timber::$dirname = [ 'templates' , 'views' ];
 
 add_action( 'wp_enqueue_scripts' , function () {
-	wp_enqueue_style( 'mejta-theme' , get_template_directory_uri() . '/static/theme.css' );
-	wp_enqueue_script( 'mejta-theme' , get_template_directory_uri() . '/static/theme.js', ['jquery'] , false , true ); 
+	wp_enqueue_style( 'plugin-name-theme' , get_template_directory_uri() . '/static/theme.css' );
+	wp_enqueue_script( 'plugin-name-theme' , get_template_directory_uri() . '/static/theme.js', ['jquery'] , false , true ); 
 } );
 
 add_action( 'after_setup_theme' , function () {
@@ -28,5 +28,5 @@ add_action( 'after_setup_theme' , function () {
 	add_theme_support( 'html5', [ 'search-form' , 'comment-form' , 'comment-list' , 'gallery' , 'caption' ] );
 	add_theme_support( 'title-tag' );
 	register_nav_menu( 'top', 'Top menu' );
-	load_theme_textdomain( 'mejta' );
+	load_theme_textdomain( 'plugin-name' );
 });

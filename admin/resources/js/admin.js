@@ -1,1 +1,1 @@
-console.log('Plugin admin js');
+console.log('Plugin admin JS');
