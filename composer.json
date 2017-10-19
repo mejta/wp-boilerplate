@@ -1,6 +1,7 @@
 {
     "name": "mejta/wp-boilerplate",
     "type": "project",
+    "license": "MIT",
     "require": {
         "tgmpa/tgm-plugin-activation": "^2.6",
         "yahnis-elsts/plugin-update-checker": "^4.2"
