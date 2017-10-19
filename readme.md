@@ -25,3 +25,27 @@ If you want to improve this boilerplate, feel free to open a pull request.
 ## Requirements
 * Running WordPress instance
 * Node.js
+
+## How to start a new project development
+1. Create project with composer inside `wp-content/plugins` directory:
+`bash
+cd wp-content/plugins
+composer create-project mejta/wp-boilerplate [your plugin name]
+cd [your plugin name]
+`
+2. Install dependencies:
+`bash
+npm install
+`
+3. Edit `plugin-info.json` file and whitelabel your plugin. (Be careful, you can do it only once, so do it right):
+`bash
+node whitelabel.js
+`
+4. Compile your assets for development:
+`bash
+npm run watch
+`
+5. Compile your assets for production:
+`bash
+npm run production
+`
