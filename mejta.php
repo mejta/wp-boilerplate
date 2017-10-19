@@ -1,70 +1,80 @@
 <?php
 /**
- * Plugin Name: Mejta.net
- * Version:     1.0.0
- * Author:      Daniel Mejta
- * Author URI:  https://www.mejta.net
- * Text Domain: mejta
+ * The plugin bootstrap file
+ *
+ * This file is read by WordPress to generate the plugin information in the plugin
+ * admin area. This file also includes all of the dependencies used by the plugin,
+ * registers the activation and deactivation functions, and defines a function
+ * that starts the plugin.
+ *
+ * @link              https://www.mejta.net
+ * @since             1.0.0
+ * @package           Mejta
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Mejta
+ * Plugin URI:        https://www.mejta.net
+ * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Version:           1.0.0
+ * Author:            Daniel Mejta
+ * Author URI:        https://www.mejta.net
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       mejta
+ * Domain Path:       /languages
  */
 
+namespace Mejta;
 
-# Require composer dependencies
-require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
+define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
-# Register themes directory
-# https://codex.wordpress.org/Function_Reference/register_theme_directory
-register_theme_directory(dirname( __FILE__ ) . '/themes');
+require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
+register_theme_directory( dirname( __FILE__ ) . '/themes' );
 
-# Get environment variables
-add_action('init', function () {
-    $dotenv = new Dotenv\Dotenv(__DIR__);
-    $dotenv->load();
-});
+/**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-mejta-activator.php
+ */
+function activate() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-activator.php';
+	Activator::activate();
+}
 
+/**
+ * The code that runs during plugin deactivation.
+ * This action is documented in includes/class-mejta-deactivator.php
+ */
+function deactivate() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-deactivator.php';
+	Deactivator::deactivate();
+}
 
-# Required and recommended plugins
-add_action('tgmpa_register', function () {
-	$plugins = [
-		[
-			'name' => 'Timber',
-			'slug' => 'timber-library',
-            'required' => true,
-            'force_activation' => true,
-        ],
-        [
-            'name' => 'Advanced Custom Fields',
-            'slug' => 'advanced-custom-fields',
-            'required' => true,
-            'force_activation' => true,
-        ],
-    ];
+register_activation_hook( __FILE__, __NAMESPACE__ . '\activate' );
+register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivate' );
 
-    if(getenv('APP_ENV') != 'production') {
-        $plugins = array_merge($plugins, [
-            [
-                'name' => 'Debug Bar',
-                'slug' => 'debug-bar',
-                'required' => false,
-            ],
-            [
-                'name' => 'Timber Debug Bar',
-                'slug' => 'debug-bar-timber',
-                'required' => false,
-            ]
-        ]);
-    }
+/**
+ * The core plugin class that is used to define internationalization,
+ * admin-specific hooks, and public-facing site hooks.
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-main.php';
 
-	$config = [
-		'id' => 'tgmpa',
-		'menu' => 'tgmpa-install-plugins',
-		'parent_slug' => 'plugins.php',
-		'capability' => 'install_plugins',
-		'has_notices' => true,
-		'dismissable' => false,
-		'is_automatic' => true,
-    ];
-
-	tgmpa( $plugins, $config );
-});
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    1.0.0
+ */
+function run() {
+	$plugin = new Main();
+	$plugin->run();
+}
+run();

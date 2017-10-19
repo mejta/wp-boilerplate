@@ -2,7 +2,7 @@
   "name": "mejta",
   "version": "1.0.0",
   "description": "",
-  "main": "themes/mejta/resources/js/app.js",
+  "main": "themes/base/resources/js/app.js",
   "author": "Daniel Mejta <daniel@mejta.net>",
   "license": "ISC",
   "private": true,

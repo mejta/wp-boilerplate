@@ -3,8 +3,7 @@
     "type": "project",
     "require": {
         "tgmpa/tgm-plugin-activation": "^2.6",
-        "yahnis-elsts/plugin-update-checker": "^4.2",
-        "vlucas/phpdotenv": "^2.4"
+        "yahnis-elsts/plugin-update-checker": "^4.2"
     },
     "authors": [
         {
