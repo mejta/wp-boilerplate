@@ -1,7 +1,7 @@
 ## Team
 
 Your Name or Your Company
-http://example.com/
+http://example.com
 
 
 ## Site

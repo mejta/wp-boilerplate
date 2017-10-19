@@ -28,5 +28,5 @@ add_action( 'after_setup_theme' , function () {
 	add_theme_support( 'html5', [ 'search-form' , 'comment-form' , 'comment-list' , 'gallery' , 'caption' ] );
 	add_theme_support( 'title-tag' );
 	register_nav_menu( 'top', 'Top menu' );
-	load_theme_textdomain( 'plugin-name' );
+	load_theme_textdomain( 'plugin-name-theme' );
 });

@@ -41,9 +41,8 @@ globby([
     '!vendor/**',
     '!whitelabel.js',
     '!**/*.log',
-]).then(function (files) {
+], { nodir: true }).then(function (files) {
     files.forEach(function (file) {
-
         var originFile = path.resolve('.', file);
 
         if(file.match(/plugin-name/gi)) {
