@@ -109,5 +109,7 @@ globby([
         });
     });
 
+    fs.unlink('./plugin-info.json');
+    fs.unlink('./readme.md');
     fs.unlink(__filename);
 });
