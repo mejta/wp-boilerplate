@@ -88,13 +88,6 @@ globby([
         });
 
         replace({
-            regex: "Plugin Name",
-            replacement: info.name,
-            paths: [ file ],
-            silent: true,
-        });
-
-        replace({
             regex: "plugin-name",
             replacement: info.slug,
             paths: [ file ],
