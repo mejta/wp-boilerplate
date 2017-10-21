@@ -51,13 +51,15 @@ npm install
 node whitelabel.js
 ```
 
-3. Compile your assets for development:
+3. Edit `admin/class-admin.php` and update information in `tgmpa_register` method (plugin dependencies) and `check_version` method (plugin updates).
+
+4. Compile your assets for development:
 
 ```bash
 npm run watch
 ```
 
-4. Compile your assets for production:
+5. Compile your assets for production:
 
 ```bash
 npm run production
