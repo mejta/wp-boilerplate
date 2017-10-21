@@ -12,7 +12,8 @@ Development boilerplate for building custom plugin and theme. This boilerplate i
 * has a nice structure that leverage modern , WordPress and frontend development,
 * uses composer for it's dependencies (that are not WP plugins).
 
-## What's inside:
+## What's inside
+
 * Plugin boilerplate inspired by [WPPB.me](https://wppb.me/)
 * Templates are written with Twig thanks to [Timber](https://www.upstatement.com/timber/)
 * Assets are compiled with [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#readme)
@@ -20,32 +21,44 @@ Development boilerplate for building custom plugin and theme. This boilerplate i
 * Plugin can be updated in a same way as any other plugin from WordPress.org with [Plugin Update Checker](https://github.com/YahnisElsts/plugin-update-checker)
 
 ## How to contribute
+
 If you want to improve this boilerplate, feel free to open a pull request.
 
 ## Requirements
+
 * Running WordPress instance
 * Node.js
 
 ## How to start a new project development
+
 1. Create project with composer inside `wp-content/plugins` directory:
+
 ```bash
 cd wp-content/plugins
 composer create-project mejta/wp-boilerplate [your plugin name]
 cd [your plugin name]
 ```
-2. Install dependencies:
+
+1. Install dependencies:
+
 ```bash
 npm install
 ```
-3. Edit `plugin-info.json` file and whitelabel your plugin. (Be careful, you can do it only once, so do it right):
+
+2. Edit `plugin.json` file and whitelabel your plugin (Be careful, you can do it only once, so do it right). `plugin.json` is also used for plugin updates.
+
 ```bash
 node whitelabel.js
 ```
-4. Compile your assets for development:
+
+3. Compile your assets for development:
+
 ```bash
 npm run watch
 ```
-5. Compile your assets for production:
+
+4. Compile your assets for production:
+
 ```bash
 npm run production
 ```

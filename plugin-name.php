@@ -32,6 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'PLUGIN_NAME_PATH', plugin_dir_path( __FILE__ ) );
 
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
@@ -42,7 +43,7 @@ register_theme_directory( dirname( __FILE__ ) . '/themes' );
  * This action is documented in includes/class-activator.php
  */
 function activate() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-activator.php';
+	require_once PLUGIN_NAME_PATH . 'includes/class-activator.php';
 	Activator::activate();
 }
 
@@ -51,7 +52,7 @@ function activate() {
  * This action is documented in includes/class-deactivator.php
  */
 function deactivate() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-deactivator.php';
+	require_once PLUGIN_NAME_PATH . 'includes/class-deactivator.php';
 	Deactivator::deactivate();
 }
 
@@ -62,7 +63,7 @@ register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivate' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-main.php';
+require PLUGIN_NAME_PATH . 'includes/class-main.php';
 
 /**
  * Begins execution of the plugin.
