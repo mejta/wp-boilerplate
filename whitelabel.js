@@ -2,7 +2,7 @@ var path = require('path');
 var fs = require('fs-extra');
 var replace = require('replace');
 var globby = require('globby');
-var data = require('./plugin-info.json');
+var data = require('./plugin.json');
 
 var capitalize = function (name) {
     return name
@@ -18,21 +18,29 @@ var capitalize = function (name) {
 var info = Object.assign({
     slug: "amazing-plugin",
     name: "Amazing Plugin",
-    uri: "http://example.com/amazing-plugin-uri/",
-    author: {
-        name: "Plugin Author",
-        uri: "http://mydomain.tld",
-        email: "my@email.tld"
-    }
+    homepage: "http://example.com/amazing-plugin-uri/",
+    author: "Plugin Author",
+    author_homepage: "http://mydomain.tld",
+    author_email: "my@email.tld"
 }, data);
 
 info.package = info.package ? info.package : capitalize(info.slug);
 info.instance = info.instance ? info.instance : info.slug.replace(/-/gi, '_');
-info.author.full = info.author.full ? info.author.full : `${info.author.name} <${info.author.email}>`;
+info.author_full = info.author_full ? info.author_full : `${info.author} <${info.author.email}>`;
 
 fs.renameSync('themes/plugin-name-theme', `themes/${info.slug}-theme`);
 fs.renameSync('plugin-name.php', `${info.slug}.php`);
 fs.renameSync('languages/plugin-name.pot', `languages/${info.slug}.pot`);
+
+/**
+ * Vendor folder have to be in repository for automatic updates.
+ */
+replace({
+    regex: "vendor/*",
+    replacement: '',
+    paths: [ '.gitignore' ],
+    silent: true,
+});
 
 globby([
     '**/*',
@@ -54,35 +62,35 @@ globby([
 
         replace({
             regex: "Your Name <email@example.com>",
-            replacement: info.author.full,
+            replacement: info.author_full,
             paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "email@example.com",
-            replacement: info.author.email,
+            replacement: info.author_email,
             paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "Your Name or Your Company",
-            replacement: info.author.name,
+            replacement: info.author,
             paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "http://example.com/plugin-name-uri/",
-            replacement: info.uri,
+            replacement: info.homepage,
             paths: [ file ],
             silent: true,
         });
 
         replace({
             regex: "http://example.com",
-            replacement: info.author.uri,
+            replacement: info.author_homepage,
             paths: [ file ],
             silent: true,
         });
@@ -102,6 +110,13 @@ globby([
         });
 
         replace({
+            regex: "PLUGIN_NAME",
+            replacement: info.instance.toUpperCase(),
+            paths: [ file ],
+            silent: true,
+        });
+
+        replace({
             regex: "plugin_name",
             replacement: info.instance,
             paths: [ file ],
@@ -109,7 +124,6 @@ globby([
         });
     });
 
-    fs.unlink('./plugin-info.json');
     fs.unlink('./readme.md');
     fs.unlink(__filename);
 });

@@ -54,6 +54,7 @@ class Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		$this->check_version();
 	}
 
 	/**
@@ -104,6 +105,7 @@ class Admin {
 
 	/**
 	 * Require or recommend plugin installation with TGMPA
+	 * http://tgmpluginactivation.com/configuration/
 	 */
 	public function tgmpa_register() {
 		$plugins = [
@@ -147,5 +149,16 @@ class Admin {
 		];
 
 		tgmpa( $plugins, $config );
+	}
+
+	/**
+	 * Checks for update
+	 */
+	public function check_version () {
+		$checker = \Puc_v4_Factory::buildUpdateChecker(
+			'https://github.com/mejta/wp-boilerplate/',
+			PLUGIN_NAME_PATH . 'plugin-name.php',
+			'plugin-name'
+		);
 	}
 }
