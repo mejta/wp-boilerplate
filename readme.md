@@ -39,27 +39,27 @@ composer create-project mejta/wp-boilerplate [your plugin name]
 cd [your plugin name]
 ```
 
-1. Install dependencies:
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Edit `plugin.json` file and whitelabel your plugin (Be careful, you can do it only once, so do it right). `plugin.json` is also used for plugin updates.
+3. Edit `plugin.json` file and whitelabel your plugin (Be careful, you can do it only once, so do it right). `plugin.json` is also used for plugin updates.
 
 ```bash
 node whitelabel.js
 ```
 
-3. Edit `admin/class-admin.php` and update information in `tgmpa_register` method (plugin dependencies) and `check_version` method (plugin updates).
+4. Edit `admin/class-admin.php` and update information in `tgmpa_register` method (plugin dependencies) and `check_version` method (plugin updates).
 
-4. Compile your assets for development:
+5. Compile your assets for development:
 
 ```bash
 npm run watch
 ```
 
-5. Compile your assets for production:
+6. Compile your assets for production:
 
 ```bash
 npm run production
