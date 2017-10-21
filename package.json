@@ -1,6 +1,6 @@
 {
   "name": "plugin-name",
-  "version": "1.0.0",
+  "version": "1.0.9",
   "description": "",
   "main": "themes/base/resources/js/app.js",
   "author": "Your Name <email@example.com>",

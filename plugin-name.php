@@ -8,7 +8,7 @@
  * that starts the plugin.
  *
  * @link              http://example.com
- * @since             1.0.0
+ * @since             1.0.9
  * @package           Plugin_Name
  *
  * @wordpress-plugin
@@ -31,7 +31,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'PLUGIN_NAME_VERSION', '1.0.7' );
+define( 'PLUGIN_NAME_VERSION', '1.0.9' );
 define( 'PLUGIN_NAME_PATH', plugin_dir_path( __FILE__ ) );
 
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
