@@ -36,7 +36,7 @@ fs.renameSync('languages/plugin-name.pot', `languages/${info.slug}.pot`);
  * Vendor folder have to be in repository for automatic updates.
  */
 replace({
-    regex: "vendor/*",
+    regex: 'vendor/\*',
     replacement: '',
     paths: [ '.gitignore' ],
     silent: true,
