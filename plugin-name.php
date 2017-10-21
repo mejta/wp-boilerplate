@@ -15,7 +15,7 @@
  * Plugin Name:       WordPress Plugin Boilerplate
  * Plugin URI:        http://example.com/plugin-name-uri/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Version:           1.0.7
  * Author:            Your Name or Your Company
  * Author URI:        http://example.com/
  * License:           GPL-2.0+
@@ -31,7 +31,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'PLUGIN_NAME_VERSION', '1.0.7' );
 define( 'PLUGIN_NAME_PATH', plugin_dir_path( __FILE__ ) );
 
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
